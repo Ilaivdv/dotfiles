@@ -18,6 +18,7 @@ vim.pack.add({
 	{ src = "https://github.com/OXY2DEV/markview.nvim" },
 	{ src = "https://github.com/Diogo-ss/42-header.nvim" },
 	{ src = "https://github.com/LmanTW/themify.nvim" },
+	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 })
 
 require "mason".setup()
