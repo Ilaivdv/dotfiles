@@ -3,13 +3,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
-
-# Options
+# Source theme and omz
 ZSH_THEME="powerlevel10k/powerlevel10k"
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
+# Options
 plugins=(git copyfile copybuffer)
 COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 
