@@ -1,0 +1,4 @@
+theme = Catppuccin Mocha
+font-family = "JetBrainsMono Nerd Font"
+cursor-style = bar
+cursor-style-blink = true
