@@ -24,6 +24,11 @@ if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
     exec tmux new-session -A -s Main >/dev/null 2>&1
 fi
 
+
+# Aliases
+alias gst="git status --short"
+alias gcm="git commit -m"
+
 # Cd into last opened directory of superfile on close
 spf() {
     os=$(uname -s)
