@@ -1,5 +1,5 @@
 vim.opt_local.textwidth = 79
-vim.cmd("set colorcolumn=79")
+set_line_limit(79)
 
 vim.lsp.config('basedpyright', {
 	cmd = { 'basedpyright-langserver', '--stdio' },

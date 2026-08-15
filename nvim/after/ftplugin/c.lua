@@ -1,5 +1,5 @@
 vim.opt_local.textwidth = 80
-vim.cmd("set colorcolumn=80")
+set_line_limit(80)
 
 vim.lsp.config('clang', {
 	cmd = {'clangd'},

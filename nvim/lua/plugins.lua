@@ -6,7 +6,6 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/rachartier/tiny-cmdline.nvim" },
-	{ src = "https://github.com/m4xshen/smartcolumn.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.pick" },
 	{ src = "https://github.com/nvim-mini/mini.icons" },
 	{ src = "https://github.com/nvim-mini/mini.notify" },
@@ -32,19 +31,15 @@ require "mini.git".setup()
 require "mini.diff".setup()
 require "mini.surround".setup()
 
-require "smartcolumn".setup({
-	disabled_filetypes = {
-		"help",
-		"text",
-		"markdown",
-		"lua",
-		"mason",
-		"help",
-		"checkhealth",
-		"lspinfo",
-		"zsh"
-	}
-})
+-- Show colorcolumn only if cursor is over line limit
+function set_line_limit(max_line)
+	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+		callback = function()
+			local cursor_pos = vim.api.nvim_win_get_cursor(0)[2] + 1
+			if cursor_pos >= max_line then vim.o.colorcolumn = tostring(max_line) else vim.o.colorcolumn = "" end
+		end,
+	})
+end
 
 require "mini.pick".setup({
 	window = {
