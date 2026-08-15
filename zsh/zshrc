@@ -27,7 +27,6 @@ fi
 
 # Aliases
 alias gst="git status --short"
-alias gcm="git commit -m"
 
 # Cd into last opened directory of superfile on close
 spf() {
