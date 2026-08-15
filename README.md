@@ -20,5 +20,6 @@ ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 ### Neovim
 - Version 0.12+
+
 **(Optional)**
 - [ripgrep](https://github.com/burntsushi/ripgrep)
