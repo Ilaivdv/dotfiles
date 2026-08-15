@@ -22,7 +22,7 @@ vim.pack.add({
 })
 
 require "mason".setup()
-require "oil".setup()
+require "oil".setup({ view_options = { show_hidden = true } })
 require "vim._core.ui2".enable({})
 require "tiny-cmdline".setup()
 require "mini.icons".setup()
@@ -49,8 +49,12 @@ require "smartcolumn".setup({
 require "mini.pick".setup({
 	window = {
 		config = {
-				relative = "cursor", anchor = "NW",
-				row = 0, col = 0, width = 40, height = 20,
+			relative = "cursor",
+			anchor = "NW",
+			row = 0,
+			col = 0,
+			width = 40,
+			height = 20,
 		}
 	}
 })
