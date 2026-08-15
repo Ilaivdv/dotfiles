@@ -7,6 +7,7 @@ vim.o.relativenumber = true
 vim.o.shiftwidth = 4
 vim.o.tabstop = 2
 vim.o.swapfile = false
+vim.o.autoread = true
 vim.o.winborder = "rounded"
 vim.o.cmdheight = 0
 vim.g.loaded_node_provider = 0
