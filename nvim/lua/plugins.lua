@@ -23,7 +23,7 @@ vim.pack.add({
 
 require "mason".setup()
 require "oil".setup({ view_options = { show_hidden = true } })
-require "vim._core.ui2".enable({})
+require "vim._core.ui2".enable({ msg = { targets = "msg" } })
 require "tiny-cmdline".setup()
 require "mini.icons".setup()
 require "mini.notify".setup()
