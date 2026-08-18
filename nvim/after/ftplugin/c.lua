@@ -1,3 +1,4 @@
+vim.o.tabstop = 4
 vim.opt_local.textwidth = 80
 set_line_limit(80)
 
