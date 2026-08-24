@@ -16,6 +16,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.surround" },
 	{ src = "https://github.com/nvim-mini/mini.indentscope" },
 	{ src = "https://github.com/OXY2DEV/markview.nvim" },
+	{ src = "https://github.com/brianhuster/live-preview.nvim" },
 	{ src = "https://github.com/Diogo-ss/42-header.nvim" },
 	{ src = "https://github.com/LmanTW/themify.nvim" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
