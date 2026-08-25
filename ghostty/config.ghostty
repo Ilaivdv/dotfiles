@@ -1,3 +1,4 @@
+window-decoration = none
 theme = Catppuccin Mocha
 font-family = "JetBrainsMono Nerd Font"
 custom-shader = cursor_shader.glsl
