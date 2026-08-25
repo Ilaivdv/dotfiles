@@ -50,7 +50,7 @@ require "mini.pick".setup({
 			anchor = "NW",
 			row = 0,
 			col = 0,
-			width = 40,
+			width = 80,
 			height = 20,
 		}
 	}
