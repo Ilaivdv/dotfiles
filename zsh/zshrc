@@ -15,8 +15,10 @@ export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOCONNECT=true
 source $ZSH/oh-my-zsh.sh
 
-# Set faster key repeat
-xset r rate 200 40
+# Set faster key repeat and check for x11/wayland
+if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
+	xset r rate 200 40
+fi
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
