@@ -1,25 +1,32 @@
 vim.pack.add({
+	-- Lsp
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/saghen/blink.lib" },
 	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+
+	-- Aesthetic
 	{ src = "https://github.com/rachartier/tiny-cmdline.nvim" },
-	{ src = "https://github.com/nvim-mini/mini.pick" },
 	{ src = "https://github.com/nvim-mini/mini.icons" },
 	{ src = "https://github.com/nvim-mini/mini.notify" },
-	{ src = "https://github.com/nvim-mini/mini.pairs" },
-	{ src = "https://github.com/nvim-mini/mini-git" },
-	{ src = "https://github.com/nvim-mini/mini.diff" },
-	{ src = "https://github.com/nvim-mini/mini.statusline" },
-	{ src = "https://github.com/nvim-mini/mini.surround" },
 	{ src = "https://github.com/nvim-mini/mini.indentscope" },
-	{ src = "https://github.com/OXY2DEV/markview.nvim" },
-	{ src = "https://github.com/brianhuster/live-preview.nvim" },
-	{ src = "https://github.com/Diogo-ss/42-header.nvim" },
+	{ src = "https://github.com/nvim-mini/mini.statusline" },
 	{ src = "https://github.com/LmanTW/themify.nvim" },
+	{ src = "https://github.com/OXY2DEV/markview.nvim" },
+
+	-- Utility
+	{ src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://github.com/nvim-mini/mini.pick" },
+	{ src = "https://github.com/nvim-mini/mini.pairs" },
+	{ src = "https://github.com/nvim-mini/mini.diff" },
+	{ src = "https://github.com/nvim-mini/mini.surround" },
+	{ src = "https://github.com/nvim-mini/mini.ai" },
+	{ src = "https://github.com/nvim-mini/mini.comment" },
+	{ src = "https://github.com/nvim-mini/mini.clue" },
+	{ src = "https://github.com/brianhuster/live-preview.nvim" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
+	{ src = "https://github.com/Diogo-ss/42-header.nvim" },
 })
 
 require "mason".setup()
@@ -29,9 +36,12 @@ require "tiny-cmdline".setup()
 require "mini.icons".setup()
 require "mini.notify".setup({ lsp_progress = { enable = false } })
 require "mini.pairs".setup()
-require "mini.git".setup()
 require "mini.diff".setup()
 require "mini.surround".setup()
+require "mini.ai".setup()
+require "mini.comment".setup()
+require "mini.clue".setup()
+require "markview".setup()
 
 -- Show colorcolumn only if cursor is over line limit
 function set_line_limit(max_line)
@@ -93,6 +103,17 @@ require "mini.indentscope".setup({
 	symbol = "▏",
 })
 
+require "themify".setup({
+	"https://github.com/folke/tokyonight.nvim",
+	"https://github.com/catppuccin/nvim",
+	"https://github.com/rebelot/kanagawa.nvim",
+	"https://github.com/sainnhe/everforest",
+	"https://github.com/shaunsingh/nord.nvim",
+	"https://github.com/olivercederborg/poimandres.nvim",
+})
+
+
+-- Lsp
 require "nvim-treesitter".setup({
 	main = "nvim-treesitter.configs",
 	branch = "master",
@@ -109,12 +130,3 @@ require "nvim-treesitter".setup({
 local cmp = require "blink.cmp"
 cmp.build():pwait()
 cmp.setup({ keymap = { preset = "enter" } })
-
-require "themify".setup({
-	"https://github.com/folke/tokyonight.nvim",
-	"https://github.com/catppuccin/nvim",
-	"https://github.com/rebelot/kanagawa.nvim",
-	"https://github.com/sainnhe/everforest",
-	"https://github.com/shaunsingh/nord.nvim",
-	"https://github.com/olivercederborg/poimandres.nvim",
-})
