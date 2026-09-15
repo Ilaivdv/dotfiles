@@ -62,10 +62,6 @@ require "mini.files".setup({
 		go_out_plus = "<BS>",
 		reset = "-",
 	},
-	windows = {
-		preview = true,
-		width_preview = 50,
-	},
 })
 
 require "mini.pick".setup({
