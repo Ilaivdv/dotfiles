@@ -16,7 +16,8 @@ vim.pack.add({
 	{ src = "https://github.com/OXY2DEV/markview.nvim" },
 
 	-- Utility
-	{ src = "https://github.com/stevearc/oil.nvim" },
+	-- { src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://github.com/nvim-mini/mini.files" },
 	{ src = "https://github.com/nvim-mini/mini.pick" },
 	{ src = "https://github.com/nvim-mini/mini.pairs" },
 	{ src = "https://github.com/nvim-mini/mini.diff" },
@@ -51,9 +52,20 @@ function set_line_limit(max_line)
 	})
 end
 
-require "oil".setup({
-	view_options = { show_hidden = true },
-	keymaps = { ["<BS>"] = { "actions.parent", mode = "n" } }
+-- require "oil".setup({
+-- 	view_options = { show_hidden = true },
+-- 	keymaps = { ["<BS>"] = { "actions.parent", mode = "n" } }
+-- })
+require "mini.files".setup({
+	mappings = {
+		go_in_plus = "<CR>",
+		go_out_plus = "<BS>",
+		reset = "-",
+	},
+	windows = {
+		preview = true,
+		width_preview = 50,
+	},
 })
 
 require "mini.pick".setup({
@@ -71,52 +83,52 @@ require "mini.pick".setup({
 
 local miniclue = require("mini.clue")
 miniclue.setup({
-  triggers = {
-    -- Leader triggers
-    { mode = { "n", "x" }, keys = "<Leader>" },
+	triggers = {
+		-- Leader triggers
+		{ mode = { "n", "x" }, keys = "<Leader>" },
 
-    -- `[` and `]` keys
-    { mode = "n", keys = "[" },
-    { mode = "n", keys = "]" },
+		-- `[` and `]` keys
+		{ mode = "n",          keys = "[" },
+		{ mode = "n",          keys = "]" },
 
-    -- Built-in completion
-    { mode = "i", keys = "<C-x>" },
+		-- Built-in completion
+		{ mode = "i",          keys = "<C-x>" },
 
-    -- `g` key
-    { mode = { "n", "x" }, keys = "g" },
+		-- `g` key
+		{ mode = { "n", "x" }, keys = "g" },
 
-    -- Marks
-    { mode = { "n", "x" }, keys = "'" },
-    { mode = { "n", "x" }, keys = "`" },
+		-- Marks
+		{ mode = { "n", "x" }, keys = "'" },
+		{ mode = { "n", "x" }, keys = "`" },
 
-    -- Registers
-    { mode = { "n", "x" }, keys = '"' },
-    { mode = { "i", "c" }, keys = "<C-r>" },
+		-- Registers
+		{ mode = { "n", "x" }, keys = '"' },
+		{ mode = { "i", "c" }, keys = "<C-r>" },
 
-    -- Window commands
-    { mode = "n", keys = "<C-w>" },
+		-- Window commands
+		{ mode = "n",          keys = "<C-w>" },
 
-    -- `z` key
-    { mode = { "n", "x" }, keys = "z" },
+		-- `z` key
+		{ mode = { "n", "x" }, keys = "z" },
 
-	-- `s` key
-    { mode = { "n", "x" }, keys = "s" },
-  },
+		-- `s` key
+		{ mode = { "n", "x" }, keys = "s" },
+	},
 
-  clues = {
-    -- Enhance this by adding descriptions for <Leader> mapping groups
-    miniclue.gen_clues.square_brackets(),
-    miniclue.gen_clues.builtin_completion(),
-    miniclue.gen_clues.g(),
-    miniclue.gen_clues.marks(),
-    miniclue.gen_clues.registers(),
-    miniclue.gen_clues.windows(),
-    miniclue.gen_clues.z(),
-  },
+	clues = {
+		-- Enhance this by adding descriptions for <Leader> mapping groups
+		miniclue.gen_clues.square_brackets(),
+		miniclue.gen_clues.builtin_completion(),
+		miniclue.gen_clues.g(),
+		miniclue.gen_clues.marks(),
+		miniclue.gen_clues.registers(),
+		miniclue.gen_clues.windows(),
+		miniclue.gen_clues.z(),
+	},
 
-  window = {
-	  delay = 250
-  }
+	window = {
+		delay = 250
+	}
 })
 
 require "mini.statusline".setup({
