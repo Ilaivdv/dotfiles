@@ -45,7 +45,7 @@ map("n", "<leader>ff", ":Pick files<CR>", { desc = "Open mini picker file finder
 map("n", "<leader>fh", ":Pick help<CR>", { desc = "Open mini picker help menu" })
 map("n", "<leader>fg", ":Pick grep_live<CR>", { desc = "Open mini picker live grep" })
 map("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Open mini picker buffers" })
-map("n", "<leader>e", function() MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end,
+map("n", "<leader>fe", function() MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end,
 	{ desc = "Open mini.files file explorer" })
 map("n", "<leader>d", require("mini.diff").toggle_overlay, { desc = "Show git diffs" })
 map("n", "<leader>cs", ":Themify<CR>", { desc = "Open Themify menu" })
