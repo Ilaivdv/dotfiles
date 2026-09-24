@@ -27,6 +27,7 @@ vim.lsp.config('basedpyright', {
 					reportImplicitOverride = false,
 					reportUnknownMemberType = false,
 					reportUnknownArgumentType = false,
+					reportUnusedCallResult = false,
 
 				},
 			},
