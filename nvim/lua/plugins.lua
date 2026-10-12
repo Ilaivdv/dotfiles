@@ -16,8 +16,7 @@ vim.pack.add({
 	{ src = "https://github.com/OXY2DEV/markview.nvim" },
 
 	-- Utility
-	-- { src = "https://github.com/stevearc/oil.nvim" },
-	{ src = "https://github.com/nvim-mini/mini.files" },
+	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.pick" },
 	{ src = "https://github.com/nvim-mini/mini.pairs" },
 	{ src = "https://github.com/nvim-mini/mini.diff" },
@@ -52,16 +51,9 @@ function set_line_limit(max_line)
 	})
 end
 
--- require "oil".setup({
--- 	view_options = { show_hidden = true },
--- 	keymaps = { ["<BS>"] = { "actions.parent", mode = "n" } }
--- })
-require "mini.files".setup({
-	mappings = {
-		go_in_plus = "<CR>",
-		go_out_plus = "<BS>",
-		reset = "-",
-	},
+require "oil".setup({
+	view_options = { show_hidden = true },
+	keymaps = { ["<BS>"] = { "actions.parent", mode = "n" } }
 })
 
 require "mini.pick".setup({
