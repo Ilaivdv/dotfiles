@@ -56,17 +56,21 @@ require "oil".setup({
 	keymaps = { ["<BS>"] = { "actions.parent", mode = "n" } }
 })
 
-require "mini.pick".setup({
-	window = {
-		config = {
-			relative = "cursor",
-			anchor = "NW",
-			row = 0,
-			col = 0,
-			width = 80,
-			height = 20,
-		}
+-- Get center of screen for mini pick window
+local win_config = function()
+	local width = math.floor(0.618 * vim.o.columns)
+	return {
+		anchor = 'NW',
+		height = 20,
+		width = width,
+		row = 0,
+		col = math.floor(0.5 * (vim.o.columns - width)),
 	}
+end
+
+require "mini.pick".setup({
+	options = { content_from_bottom = true },
+	window = { config = win_config }
 })
 
 local miniclue = require("mini.clue")
