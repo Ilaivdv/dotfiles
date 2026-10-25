@@ -20,6 +20,16 @@ map("n", "<C-down>", ":resize -5<CR>", { desc = "Resize horizontal split down" }
 map("n", "<C-up>", ":resize +5<CR>", { desc = "Resize horizontal split up" })
 map("n", "<C-left>", ":vertical resize -5<CR>", { desc = "Resize vertical split left" })
 map("n", "<C-right>", ":vertical resize +5<CR>", { desc = "Resize vertical split right" })
+<<<<<<< HEAD
+=======
+map({ "n", "v", "x" }, "<leader>y", "\"+y<CR>", { desc = "Yank selection to system clipboard" })
+map({ "v", "x" }, "<leader>d", "\"+d<CR>", { desc = "Cut selection to system clipboard" })
+map("n", "<leader>cwd", ":cd %:p:h<CR>", { desc = "Change working directory to current buffer" })
+map("n", "zk", function() require("flash").jump() end, { desc = "Flash jump" })
+map("n", "Zk", function() require("flash").treesitter() end, { desc = "Flash treesitter" })
+
+-- Navigation: Stay in visual mode after indent
+>>>>>>> 8378a02 (Clean up and add flash and trouble plugins)
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 map("n", "<C-k>", "kzz")
@@ -42,6 +52,11 @@ map("n", "<leader>ff", ":Pick files<CR>", { desc = "Open mini picker file finder
 map("n", "<leader>fh", ":Pick help<CR>", { desc = "Open mini picker help menu" })
 map("n", "<leader>fg", ":Pick grep_live<CR>", { desc = "Open mini picker live grep" })
 map("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Open mini picker buffers" })
+map("n", "<leader>fd", ":Trouble diagnostics toggle filter.buf=0<cr>",
+	{ desc = "Open trouble diagnostic window on current buffer" })
+map("n", "<leader>fD", ":Trouble diagnostics<CR>", { desc = "Open trouble diagnostic window on all buffers" })
+map("n", "<leader>fr", ":Trouble lsp toggle focus=true win.position=top<CR>",
+	{ desc = "Open Trouble LSP definitions/references" })
 map("n", "<leader>fe", ":Oil<CR>", { desc = "Open oil file editor" })
 map("n", "<leader>d", require("mini.diff").toggle_overlay, { desc = "Show git diffs" })
 map("n", "<leader>cs", ":Themify<CR>", { desc = "Open Themify menu" })

@@ -26,20 +26,12 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.clue" },
 	{ src = "https://github.com/brianhuster/live-preview.nvim" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
+	{ src = "https://github.com/folke/trouble.nvim" },
+	{ src = "https://github.com/folke/flash.nvim" },
+
+	-- Extra
 	{ src = "https://github.com/Diogo-ss/42-header.nvim" },
 })
-
-require "mason".setup()
-require "vim._core.ui2".enable({ msg = { targets = "msg" } })
-require "tiny-cmdline".setup()
-require "mini.icons".setup()
-require "mini.notify".setup({ lsp_progress = { enable = false } })
-require "mini.pairs".setup()
-require "mini.diff".setup()
-require "mini.surround".setup()
-require "mini.ai".setup()
-require "mini.comment".setup()
-require "markview".setup()
 
 -- Show colorcolumn only if cursor is over line limit
 function set_line_limit(max_line)
@@ -51,26 +43,38 @@ function set_line_limit(max_line)
 	})
 end
 
-require "oil".setup({
+require("mason").setup()
+require("vim._core.ui2").enable({ msg = { targets = "msg" } })
+require("tiny-cmdline").setup()
+require("markview").setup()
+require("trouble").setup()
+require("flash").setup()
+require("oil").setup({
 	view_options = { show_hidden = true },
 	keymaps = { ["<BS>"] = { "actions.parent", mode = "n" } }
 })
 
--- Get center of screen for mini pick window
-local win_config = function()
-	local width = math.floor(0.618 * vim.o.columns)
-	return {
-		anchor = 'NW',
-		height = 20,
-		width = width,
-		row = 0,
-		col = math.floor(0.5 * (vim.o.columns - width)),
-	}
-end
+-- Mini
+require("mini.icons").setup()
+require("mini.notify").setup({ lsp_progress = { enable = false } })
+require("mini.pairs").setup()
+require("mini.diff").setup()
+require("mini.surround").setup()
+require("mini.ai").setup()
+require("mini.comment").setup()
 
-require "mini.pick".setup({
+local width = math.floor(0.618 * vim.o.columns)
+require("mini.pick").setup({
 	options = { content_from_bottom = true },
-	window = { config = win_config }
+	window = {
+		config = {
+			anchor = "NW",
+			height = 20,
+			width = width,
+			row = 0,
+			col = math.floor(0.5 * (vim.o.columns - width))
+		}
+	}
 })
 
 local miniclue = require("mini.clue")
@@ -106,7 +110,6 @@ miniclue.setup({
 		-- `s` key
 		{ mode = { "n", "x" }, keys = "s" },
 	},
-
 	clues = {
 		-- Enhance this by adding descriptions for <Leader> mapping groups
 		miniclue.gen_clues.square_brackets(),
@@ -123,7 +126,7 @@ miniclue.setup({
 	}
 })
 
-require "mini.statusline".setup({
+require("mini.statusline").setup({
 	content = {
 		active = function()
 			local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
@@ -152,7 +155,7 @@ require "mini.statusline".setup({
 	},
 })
 
-require "mini.indentscope".setup({
+require("mini.indentscope").setup({
 	draw = {
 		delay = 30,
 		animation = require("mini.indentscope").gen_animation.linear({ duration = 10 })
@@ -160,18 +163,8 @@ require "mini.indentscope".setup({
 	symbol = "▏",
 })
 
-require "themify".setup({
-	"https://github.com/folke/tokyonight.nvim",
-	"https://github.com/catppuccin/nvim",
-	"https://github.com/rebelot/kanagawa.nvim",
-	"https://github.com/sainnhe/everforest",
-	"https://github.com/shaunsingh/nord.nvim",
-	"https://github.com/olivercederborg/poimandres.nvim",
-})
-
-
 -- Lsp
-require "nvim-treesitter".setup({
+require("nvim-treesitter").setup({
 	main = "nvim-treesitter.configs",
 	branch = "master",
 	opts = {
@@ -184,6 +177,15 @@ require "nvim-treesitter".setup({
 	},
 })
 
-local cmp = require "blink.cmp"
+local cmp = require("blink.cmp")
 cmp.build():pwait()
 cmp.setup({ keymap = { preset = "enter" } })
+
+require("themify").setup({
+	"https://github.com/folke/tokyonight.nvim",
+	"https://github.com/catppuccin/nvim",
+	"https://github.com/rebelot/kanagawa.nvim",
+	"https://github.com/sainnhe/everforest",
+	"https://github.com/shaunsingh/nord.nvim",
+	"https://github.com/olivercederborg/poimandres.nvim",
+})
