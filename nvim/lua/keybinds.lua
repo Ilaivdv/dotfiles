@@ -47,9 +47,9 @@ map("n", "<leader>ff", ":Pick files<CR>", { desc = "Open mini picker file finder
 map("n", "<leader>fh", ":Pick help<CR>", { desc = "Open mini picker help menu" })
 map("n", "<leader>fg", ":Pick grep_live<CR>", { desc = "Open mini picker live grep" })
 map("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Open mini picker buffers" })
-map("n", "<leader>fd", ":Trouble diagnostics toggle filter.buf=0<cr>",
+map("n", "<leader>fd", ":Trouble diagnostics toggle filter.buf=0 win.position=top<cr>",
 	{ desc = "Open trouble diagnostic window on current buffer" })
-map("n", "<leader>fD", ":Trouble diagnostics<CR>", { desc = "Open trouble diagnostic window on all buffers" })
+map("n", "<leader>fD", ":Trouble diagnostics win.position=top<CR>", { desc = "Open trouble diagnostic window on all buffers" })
 map("n", "<leader>fr", ":Trouble lsp toggle focus=true win.position=top<CR>",
 	{ desc = "Open Trouble LSP definitions/references" })
 map("n", "<leader>fe", ":Oil<CR>", { desc = "Open oil file editor" })
