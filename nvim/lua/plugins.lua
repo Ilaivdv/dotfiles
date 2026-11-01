@@ -11,7 +11,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.icons" },
 	{ src = "https://github.com/nvim-mini/mini.notify" },
 	{ src = "https://github.com/nvim-mini/mini.indentscope" },
-	{ src = "https://github.com/nvim-mini/mini.statusline" },
+	{ src = "https://github.com/nvim-lualine/lualine.nvim.git" },
 	{ src = "https://github.com/LmanTW/themify.nvim" },
 	{ src = "https://github.com/OXY2DEV/markview.nvim" },
 
@@ -26,6 +26,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.clue" },
 	{ src = "https://github.com/brianhuster/live-preview.nvim" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
+	{ src = "https://github.com/vimpostor/vim-tpipeline" },
 	{ src = "https://github.com/folke/trouble.nvim" },
 	{ src = "https://github.com/folke/flash.nvim" },
 	{ src = "https://github.com/Wansmer/treesj" },
@@ -55,6 +56,24 @@ require("oil").setup({
 	keymaps = { ["<BS>"] = { "actions.parent", mode = "n" } }
 })
 require("treesj").setup()
+
+require("lualine").setup({
+	options = {
+		icons_enabled = true,
+		theme = "auto",
+		component_separators = {left = "", right = ""},
+		section_separators = {left = "", right = ""},
+	},
+	sections = {
+		lualine_a = {"mode"},
+		lualine_b = {"branch", "diff", "diagnostics"},
+		lualine_c = {"filename"},
+		lualine_x = {"filetype"},
+		lualine_y = {"progress"},
+		lualine_z = {"location"},
+	}
+})
+
 
 -- Mini
 require("mini.icons").setup()
@@ -127,35 +146,35 @@ miniclue.setup({
 		delay = 250
 	}
 })
-
-require("mini.statusline").setup({
-	content = {
-		active = function()
-			local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
-			local git           = MiniStatusline.section_git({ trunc_width = 40 })
-			local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
-			local lsp           = MiniStatusline.section_lsp({ trunc_width = 75 })
-			local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
-			local fileinfo      = MiniIcons.get("file", "file." .. vim.bo.filetype) .. " " .. vim.bo.filetype
-			local location      = MiniStatusline.section_location({ trunc_width = 75 })
-			local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
-
-			local reg           = vim.fn.reg_recording()
-			local macro         = "" == reg and "" or " recording to " .. reg
-
-			return MiniStatusline.combine_groups({
-				{ hl = mode_hl,                 strings = { mode, macro } },
-				{ hl = 'MiniStatuslineDevinfo', strings = { git, diagnostics } },
-				'%<', -- Mark general truncate point
-				{ hl = 'MiniStatuslineFilename', strings = { filename } },
-				'%=', -- End left alignment
-				{ hl = 'MiniStatuslineFilename', strings = { lsp } },
-				{ hl = 'MiniStatuslineFileinfo', strings = { search, fileinfo } },
-				{ hl = mode_hl,                  strings = { location } },
-			})
-		end,
-	},
-})
+--
+-- require("mini.statusline").setup({
+-- 	content = {
+-- 		active = function()
+-- 			local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+-- 			local git           = MiniStatusline.section_git({ trunc_width = 40 })
+-- 			local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+-- 			local lsp           = MiniStatusline.section_lsp({ trunc_width = 75 })
+-- 			local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
+-- 			local fileinfo      = MiniIcons.get("file", "file." .. vim.bo.filetype) .. " " .. vim.bo.filetype
+-- 			local location      = MiniStatusline.section_location({ trunc_width = 75 })
+-- 			local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
+--
+-- 			local reg           = vim.fn.reg_recording()
+-- 			local macro         = "" == reg and "" or " recording to " .. reg
+--
+-- 			return MiniStatusline.combine_groups({
+-- 				{ hl = mode_hl,                 strings = { mode, macro } },
+-- 				{ hl = 'MiniStatuslineDevinfo', strings = { git, diagnostics } },
+-- 				'%<', -- Mark general truncate point
+-- 				{ hl = 'MiniStatuslineFilename', strings = { filename } },
+-- 				'%=', -- End left alignment
+-- 				{ hl = 'MiniStatuslineFilename', strings = { lsp } },
+-- 				{ hl = 'MiniStatuslineFileinfo', strings = { search, fileinfo } },
+-- 				{ hl = mode_hl,                  strings = { location } },
+-- 			})
+-- 		end,
+-- 	},
+-- })
 
 require("mini.indentscope").setup({
 	draw = {
