@@ -28,6 +28,7 @@ vim.pack.add({
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 	{ src = "https://github.com/folke/trouble.nvim" },
 	{ src = "https://github.com/folke/flash.nvim" },
+	{ src = "https://github.com/Wansmer/treesj" },
 
 	-- Extra
 	{ src = "https://github.com/Diogo-ss/42-header.nvim" },
@@ -53,6 +54,7 @@ require("oil").setup({
 	view_options = { show_hidden = true },
 	keymaps = { ["<BS>"] = { "actions.parent", mode = "n" } }
 })
+require("treesj").setup()
 
 -- Mini
 require("mini.icons").setup()
