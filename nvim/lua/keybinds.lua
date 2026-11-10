@@ -20,8 +20,6 @@ map("n", "<C-down>", ":resize -5<CR>", { desc = "Resize horizontal split down" }
 map("n", "<C-up>", ":resize +5<CR>", { desc = "Resize horizontal split up" })
 map("n", "<C-left>", ":vertical resize -5<CR>", { desc = "Resize vertical split left" })
 map("n", "<C-right>", ":vertical resize +5<CR>", { desc = "Resize vertical split right" })
-<<<<<<< HEAD
-=======
 map({ "n", "v", "x" }, "<leader>y", "\"+y<CR>", { desc = "Yank selection to system clipboard" })
 map({ "v", "x" }, "<leader>d", "\"+d<CR>", { desc = "Cut selection to system clipboard" })
 map("n", "<leader>cwd", ":cd %:p:h<CR>", { desc = "Change working directory to current buffer" })
@@ -29,7 +27,6 @@ map("n", "zk", function() require("flash").jump() end, { desc = "Flash jump" })
 map("n", "Zk", function() require("flash").treesitter() end, { desc = "Flash treesitter" })
 
 -- Navigation: Stay in visual mode after indent
->>>>>>> 8378a02 (Clean up and add flash and trouble plugins)
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 map("n", "<C-k>", "kzz")
