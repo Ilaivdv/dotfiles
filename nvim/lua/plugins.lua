@@ -27,7 +27,6 @@ vim.pack.add({
 	{ src = "https://github.com/brianhuster/live-preview.nvim" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 	{ src = "https://github.com/vimpostor/vim-tpipeline",        event = "VeryLazy" },
-	{ src = "https://github.com/folke/trouble.nvim" },
 	{ src = "https://github.com/folke/flash.nvim" },
 	{ src = "https://github.com/Wansmer/treesj" },
 
@@ -49,7 +48,6 @@ require("mason").setup()
 require("vim._core.ui2").enable({ msg = { targets = "msg" } })
 require("tiny-cmdline").setup()
 require("markview").setup()
-require("trouble").setup()
 require("flash").setup()
 require("oil").setup({
 	view_options = { show_hidden = true },
