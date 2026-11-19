@@ -34,6 +34,14 @@ vim.pack.add({
 	{ src = "https://github.com/Diogo-ss/42-header.nvim" },
 })
 
+-- Auto-resize splits
+vim.api.nvim_create_autocmd("VimResized", {
+	group = vim.api.nvim_create_augroup("UserConfig", {}),
+	callback = function ()
+		vim.cmd("tabdo wincmd =")
+	end,
+})
+
 -- Show colorcolumn only if cursor is over line limit
 function set_line_limit(max_line)
 	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
