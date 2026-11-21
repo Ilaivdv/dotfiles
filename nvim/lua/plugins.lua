@@ -24,6 +24,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.ai" },
 	{ src = "https://github.com/nvim-mini/mini.comment" },
 	{ src = "https://github.com/nvim-mini/mini.clue" },
+	{ src = "https://github.com/brenoprata10/nvim-highlight-colors" },
 	{ src = "https://github.com/brianhuster/live-preview.nvim" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 	{ src = "https://github.com/vimpostor/vim-tpipeline",        event = "VeryLazy" },
@@ -62,7 +63,7 @@ require("oil").setup({
 	keymaps = { ["<BS>"] = { "actions.parent", mode = "n" } }
 })
 require("treesj").setup()
-
+require("nvim-highlight-colors").setup({})
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
