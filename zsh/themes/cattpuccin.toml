@@ -2,7 +2,7 @@
 final_space = true
 version = 4
 
-# Right
+# Right prompt
 [[blocks]]
 type = "rprompt"
 overflow = "hidden"
@@ -10,7 +10,7 @@ overflow = "hidden"
 [[blocks.segments]]
 type = "executiontime"
 style = "plain"
-foreground = "lightWhite"
+foreground = "white"
 template = "{{ .FormattedMs }}"
 
 # Left prompt
