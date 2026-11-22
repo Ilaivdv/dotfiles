@@ -2,6 +2,18 @@
 final_space = true
 version = 4
 
+# Right
+[[blocks]]
+type = "rprompt"
+overflow = "hidden"
+
+[[blocks.segments]]
+type = "executiontime"
+style = "plain"
+foreground = "lightWhite"
+template = "{{ .FormattedMs }}"
+
+# Left prompt
 [[blocks]]
 alignment = "left"
 type = "prompt"
@@ -20,7 +32,7 @@ style = "agnoster_short"
 [[blocks.segments]]
 foreground = "magenta"
 template = " {{ .HEAD }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
-foreground_templates = [ "{{ if .Working.Changed }}yellow{{ end }}", "{{ if .Staging.Changed }}green{{ end }}" ]
+foreground_templates = [ "{{ if or (.Working.Changed) (gt .StashCount 0) }}yellow{{ end }}", "{{ if .Staging.Changed }}green{{ end }}" ]
 style = "plain"
 type = "git"
 
