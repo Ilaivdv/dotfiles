@@ -6,12 +6,6 @@ version = 4
 alignment = "left"
 type = "prompt"
 
-# [[blocks.segments]]
-# foreground = "blue"
-# style = "plain"
-# template = " {{ .UserName }}@{{ .HostName }}"
-# type = "session"
-
 [[blocks.segments]]
 foreground = "blue"
 style = "plain"
@@ -25,7 +19,8 @@ style = "agnoster_short"
 
 [[blocks.segments]]
 foreground = "magenta"
-template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}"
+# template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}"
+template = " {{ .UpstreamIcon }} {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
 style = "plain"
 type = "git"
 
@@ -44,7 +39,3 @@ style = "plain"
 foreground = "lightGreen"
 template = " "
 type = "text"
-
-[transient_prompt]
-foreground = "lightGreen"
-template = "  "
