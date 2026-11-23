@@ -19,20 +19,21 @@ alignment = "left"
 type = "prompt"
 
 [[blocks.segments]]
-foreground = "blue"
+foreground = "236" # A darker black than default
+background = "blue"
 style = "plain"
-template = " {{ .Path }}"
+template = "<,transparent> </> <b>{{ .Path }}</b> "
 type = "path"
 
 [blocks.segments.options]
-folder_icon = ".."
+folder_icon = ""
 home_icon = "~"
 style = "agnoster_short"
 
 [[blocks.segments]]
-foreground = "magenta"
-template = " {{ .HEAD }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .Ahead 0 }} >{{ .Ahead }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
-foreground_templates = [ "{{ if or (.Working.Changed) (gt .StashCount 0) }}yellow{{ end }}", "{{ if .Staging.Changed }}green{{ end }}", "{{ if gt .Ahead 0 }}cyan{{ end }}" ]
+foreground = "green"
+template = " {{ .HEAD }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .Ahead 0 }} >{{ .Ahead }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} "
+foreground_templates = [ "{{ if or (.Working.Changed) (gt .StashCount 0) }}yellow{{ end }}", "{{ if .Staging.Changed }}magenta{{ end }}", "{{ if gt .Ahead 0 }}green{{ end }}" ]
 style = "plain"
 type = "git"
 
@@ -48,7 +49,16 @@ tag_icon = " "
 
 [[blocks.segments]]
 style = "plain"
-foreground = "lightBlue"
+foreground = "black"
 foreground_templates = [ "{{ if gt .Code 0 }}red{{ end }}" ]
-template = " >"
+template = "\n <b></b>"
 type = "text"
+
+[secondary_prompt]
+foreground = "black"
+template = " <b></b> "
+
+[transient_prompt]
+foreground = "black"
+foreground_templates = [ "{{ if gt .Code 0 }}red{{ end }}" ]
+template = " <b></b> "
