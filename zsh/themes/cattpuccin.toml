@@ -31,8 +31,8 @@ style = "agnoster_short"
 
 [[blocks.segments]]
 foreground = "magenta"
-template = " {{ .HEAD }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .Ahead 0 }}{{ .Ahead }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
-foreground_templates = [ "{{ if or (.Working.Changed) (gt .StashCount 0) }}yellow{{ end }}", "{{ if .Staging.Changed }}green{{ end }}" ]
+template = " {{ .HEAD }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .Ahead 0 }} >{{ .Ahead }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
+foreground_templates = [ "{{ if or (.Working.Changed) (gt .StashCount 0) }}yellow{{ end }}", "{{ if .Staging.Changed }}green{{ end }}", "{{ if gt .Ahead 0 }}lightGreen{{ end }}" ]
 style = "plain"
 type = "git"
 
