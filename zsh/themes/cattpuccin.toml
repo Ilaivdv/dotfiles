@@ -2,17 +2,6 @@
 final_space = true
 version = 4
 
-# Right prompt
-[[blocks]]
-type = "rprompt"
-overflow = "hidden"
-
-[[blocks.segments]]
-type = "executiontime"
-style = "plain"
-foreground = "white"
-template = "{{ .FormattedMs }}"
-
 # Left prompt
 [[blocks]]
 alignment = "left"
@@ -47,11 +36,30 @@ rebase_icon = " "
 revert_icon = " "
 tag_icon = " "
 
+# Right prompt
+[[blocks]]
+alignment = "right"
+type = "prompt"
+overflow = "hidden"
+
+[[blocks.segments]]
+type = "executiontime"
+style = "plain"
+foreground = "blue"
+background = "#313244"
+template = " {{ .FormattedMs }} "
+
+# Left bottom prompt
+[[blocks]]
+alignment = "left"
+newline = true
+type = "prompt"
+
 [[blocks.segments]]
 style = "plain"
 foreground = "black"
 foreground_templates = [ "{{ if gt .Code 0 }}red{{ end }}" ]
-template = "\n <b></b>"
+template = " <b></b>"
 type = "text"
 
 [secondary_prompt]
