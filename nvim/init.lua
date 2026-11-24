@@ -7,6 +7,9 @@ vim.o.showmatch = true
 vim.o.number = true
 vim.o.wrap = false
 
+-- Hide statusline for tmux
+vim.o.laststatus = 0
+
 vim.o.backspace = "indent,eol,start"
 vim.o.shiftwidth = 0
 vim.o.tabstop = 4
