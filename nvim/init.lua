@@ -18,7 +18,7 @@ vim.o.smartindent = true
 vim.o.scrolloff = 10
 vim.o.sidescrolloff = 8
 
-vim.o.selection = "exclusive"
+vim.o.selection = "inclusive"
 vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
