@@ -64,6 +64,7 @@ require("oil").setup({
 })
 require("treesj").setup()
 require("nvim-highlight-colors").setup({})
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,

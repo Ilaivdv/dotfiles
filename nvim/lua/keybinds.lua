@@ -50,3 +50,4 @@ map("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Open mini picker buffers" 
 map("n", "<leader>fe", ":Oil<CR>", { desc = "Open oil file editor" })
 map("n", "<leader>d", require("mini.diff").toggle_overlay, { desc = "Show git diffs" })
 map("n", "<leader>cs", ":Themify<CR>", { desc = "Open Themify menu" })
+

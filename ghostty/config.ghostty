@@ -1,4 +1,4 @@
-window-decoration = none
 theme = Catppuccin Mocha
 font-family = "JetBrainsMono Nerd Font"
-font-size = 13.5
+font-size = 17.5
+macos-option-as-alt = true
