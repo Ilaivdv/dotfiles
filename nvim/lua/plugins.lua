@@ -24,15 +24,23 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.ai" },
 	{ src = "https://github.com/nvim-mini/mini.comment" },
 	{ src = "https://github.com/nvim-mini/mini.clue" },
+	{ src = "https://github.com/brenoprata10/nvim-highlight-colors" },
 	{ src = "https://github.com/brianhuster/live-preview.nvim" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 	{ src = "https://github.com/vimpostor/vim-tpipeline",        event = "VeryLazy" },
-	{ src = "https://github.com/folke/trouble.nvim" },
 	{ src = "https://github.com/folke/flash.nvim" },
 	{ src = "https://github.com/Wansmer/treesj" },
 
 	-- Extra
 	{ src = "https://github.com/Diogo-ss/42-header.nvim" },
+})
+
+-- Auto-resize splits
+vim.api.nvim_create_autocmd("VimResized", {
+	group = vim.api.nvim_create_augroup("UserConfig", {}),
+	callback = function ()
+		vim.cmd("tabdo wincmd =")
+	end,
 })
 
 -- Show colorcolumn only if cursor is over line limit
@@ -49,14 +57,13 @@ require("mason").setup()
 require("vim._core.ui2").enable({ msg = { targets = "msg" } })
 require("tiny-cmdline").setup()
 require("markview").setup()
-require("trouble").setup()
 require("flash").setup()
 require("oil").setup({
 	view_options = { show_hidden = true },
 	keymaps = { ["<BS>"] = { "actions.parent", mode = "n" } }
 })
 require("treesj").setup()
-
+require("nvim-highlight-colors").setup({})
 require("lualine").setup({
 	options = {
 		icons_enabled = true,

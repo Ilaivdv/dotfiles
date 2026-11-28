@@ -1,0 +1,72 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+version = 4
+
+# Left prompt
+[[blocks]]
+alignment = "left"
+type = "prompt"
+
+[[blocks.segments]]
+foreground = "236" # A darker black than default
+background = "blue"
+style = "plain"
+template = "<,transparent> </> <b>{{ .Path }}</b> "
+type = "path"
+
+[blocks.segments.options]
+folder_icon = ""
+home_icon = "~"
+style = "agnoster_short"
+
+[[blocks.segments]]
+foreground = "green"
+template = " {{ .HEAD }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .Ahead 0 }} >{{ .Ahead }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} "
+foreground_templates = [ "{{ if or (.Working.Changed) (gt .StashCount 0) }}yellow{{ end }}", "{{ if .Staging.Changed }}magenta{{ end }}", "{{ if gt .Ahead 0 }}green{{ end }}" ]
+style = "plain"
+type = "git"
+
+[blocks.segments.options]
+branch_icon = " "
+cherry_pick_icon = " "
+commit_icon = " "
+merge_icon = " "
+no_commits_icon = " "
+rebase_icon = " "
+revert_icon = " "
+tag_icon = " "
+
+# Right prompt
+[[blocks]]
+alignment = "right"
+type = "prompt"
+overflow = "hidden"
+
+[[blocks.segments]]
+type = "executiontime"
+style = "plain"
+foreground = "blue"
+background = "#313244"
+template = " {{ .FormattedMs }} "
+
+# Left bottom prompt
+[[blocks]]
+alignment = "left"
+newline = true
+type = "prompt"
+
+[[blocks.segments]]
+style = "plain"
+foreground = "black"
+foreground_templates = [ "{{ if gt .Code 0 }}red{{ end }}" ]
+template = " <b></b>"
+type = "text"
+
+[secondary_prompt]
+foreground = "black"
+template = " <b></b> "
+
+[transient_prompt]
+foreground = "black"
+foreground_templates = [ "{{ if gt .Code 0 }}red{{ end }}" ]
+template = " <b></b> "
